@@ -115,7 +115,7 @@ class TextEditor(QMainWindow):
 
     def spell_check(self):
         text = self.textEdit.toPlainText()
-        corrected_sentence = self.callSpellCheckAPI(text)
+        corrected_sentence = self.call_spell_check_API(text)
         if corrected_sentence:
             self.textEdit.setText(corrected_sentence)
         else:
@@ -128,6 +128,7 @@ class TextEditor(QMainWindow):
             QMessageBox.information(self, "Spell Check", "No corrections found or error in spell checking.")
 
     def call_spell_check_API(self, text):
+        print('this')
 
         """Sends needed info to text gear API. for now, there is hardcoded API key, for production it should be changed.
         get response from API and check if the response have all requirements met, than returns a corrected JSON"""
@@ -150,6 +151,7 @@ class TextEditor(QMainWindow):
 
             if data.get('status') is True and 'response' in data and 'corrected' in data['response']:
                 return data['response']['corrected']
+
             # if there's no errors
             else:
                 print('API response', data)
@@ -158,6 +160,7 @@ class TextEditor(QMainWindow):
         # if there's API connection error
         except requests.RequestException as e:
             QMessageBox.warning(self, "API Error", f"API request failed: {e}")
+            print('this')
             return None
 
 
