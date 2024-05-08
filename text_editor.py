@@ -70,7 +70,8 @@ class TextEditor(QMainWindow):
         self.setWindowIcon(QtGui.QIcon('next_gen_edit.jpg'))
         self.setGeometry(300, 300, 600, 400)
         self.setup_menu_bar()
-        self.setStyleSheet("""
+        self.setStyleSheet(  # new stylesheets
+                    """
                     QMainWindow {
                         background-color: #52524E;
                         border: 6px double gray
