@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ece170f-2de5-4970-9752-cd40705e0c56" name="Changes" comment="NextGenEdit text editor version 1.0.0&#10;# TODO: highlighting text class refactor,&#10;        spell_check API response not working currently.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/text_editor.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_editor.py" afterDir="false" />
     </list>
@@ -88,16 +86,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="NextGenEdit text editor version 1.0.0&#10;# TODO: highlighting text class refactor,&#10;        spell_check API response not working currently." />
     <option name="LAST_COMMIT_MESSAGE" value="NextGenEdit text editor version 1.0.0&#10;# TODO: highlighting text class refactor,&#10;        spell_check API response not working currently." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/text_editor.py</url>
-          <line>90</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

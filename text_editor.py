@@ -10,14 +10,14 @@ from PyQt5.QtCore import Qt
 class HighlightingTextEdit(QTextEdit):
     def __init__(self, parent=None):
         super(HighlightingTextEdit, self).__init__(parent)
-        self.spellCheckResults = []
+        self.spell_check_results = []
         self.setContextMenuPolicy(Qt.CustomContextMenu)
         self.customContextMenuRequested.connect(self.show_context_menu)
 
-    def highlight_spelling_errors(self, spellCheckResults):
-        for error in spellCheckResults:
+    def highlight_spelling_errors(self, spell_check_results):
+        for error in spell_check_results:
             if isinstance(error, dict) and 'offset' in error and 'bad' in error:
-                self.highlightWord(error['offset'], error['offset'] + len(error['bad']))
+                self.highlight_word(error['offset'], error['offset'] + len(error['bad']))
             else:
                 print("Error in spellCheckResults format:", error)
 
@@ -36,7 +36,7 @@ class HighlightingTextEdit(QTextEdit):
         cursor.select(QTextCursor.WordUnderCursor)
         selected_word = cursor.selectedText()
 
-        for error in self.spellCheckResults:
+        for error in self.spell_check_results:
             if error['bad'] == selected_word:
                 for suggestion in error['better']:
                     action = menu.addAction(suggestion)
@@ -45,7 +45,7 @@ class HighlightingTextEdit(QTextEdit):
         menu.exec_(self.mapToGlobal(position))
 
     @staticmethod
-    def replace_word(self, cursor, word):
+    def replace_word(cursor, word):
 
         """replaces misspelled word with corrected response from API"""
 
@@ -70,6 +70,40 @@ class TextEditor(QMainWindow):
         self.setWindowIcon(QtGui.QIcon('next_gen_edit.jpg'))
         self.setGeometry(300, 300, 600, 400)
         self.setup_menu_bar()
+        self.setStyleSheet("""
+                    QMainWindow {
+                        background-color: #52524E;
+                        border: 6px double gray
+                    }
+                    QTextEdit {
+                        background-color: #272822;
+                        color: #F8F8F2;
+                        selection-background-color: #49483E;
+                        selection-color: #F8F8F2;
+                        border: 6px double gray
+                        
+                    }
+                    QMenu {
+                        background-color: #52524E;
+                        color: #F8F8F2;
+                        border: 3px solid #7D8F98 
+                        
+                    }
+                    QMenu::item:selected {
+                        background-color: #997F37;
+                    }
+                    QMenuBar {
+                        background-color: #3A3A37;
+                        color: #F8F8F2;
+                        border: 2px solid gray
+                    }
+                    QMenuBar::item:selected {
+                        background-color: #997F37;
+                    }
+                    QMenu::item:selected:hover {
+                        background-color: yellow    
+                    }
+                    """)
 
     def setup_menu_bar(self):
 
